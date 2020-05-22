@@ -2,9 +2,11 @@ server:
   servlet:
     context-path: /
   port: 8088
+
 spring:
   kafka:
-    bootstrap-servers: 192.168.200.128:9092
+#    bootstrap-servers: 192.168.0.111:9092,192.168.0.112:9092,192.168.0.113:9092
+    bootstrap-servers: 114.67.203.88:9092
     #生产者的配置，大部分我们可以使用默认的，这里列出几个比较重要的属性
     producer:
       #每批次发送消息的数量
@@ -30,3 +32,5 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       #在/usr/local/etc/kafka/consumer.properties中有配置
       group-id: test-consumer-group
+
+
