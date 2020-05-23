@@ -19,6 +19,10 @@ import java.util.UUID;
 @Configuration
 @EnableScheduling
 public class KafkaProducer {
+
+
+    public final static String TOPIC_NAME = "xxm_topic";
+
     @Autowired
     private KafkaTemplate kafkaTemplate;
 
@@ -30,6 +34,6 @@ public class KafkaProducer {
         message.setId("KFK_"+System.currentTimeMillis());
         message.setMsg(UUID.randomUUID().toString());
         message.setSendTime(new Date());
-        kafkaTemplate.send("test", "key",gson.toJson(message));
+        kafkaTemplate.send(TOPIC_NAME, "key",gson.toJson(message));
     }
 }

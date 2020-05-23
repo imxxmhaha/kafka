@@ -9,7 +9,10 @@ import java.util.Optional;
 @Component
 public class Consumer {
 
-    @KafkaListener(topics = {"test"})
+
+    public final static String TOPIC_NAME = "xxm_topic";
+
+    @KafkaListener(topics = {TOPIC_NAME})
     public void listen(ConsumerRecord<?, ?> record){
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
